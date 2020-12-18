@@ -15,9 +15,12 @@ var apiDataFunction = function() {
     var apiDataFunctionTwo = function() {
 
 
-        var apiUrlTwo =  "https://api.rawg.io/api/games?page_size=5&search=gta%20v"
+       // var apiUrlTwo =  "https://api.rawg.io/api/platforms?key=f58ccbebc042468c979cde0ac7353b65"
+       // fetches data for anticipated 2020 games
+       var apiUrlTwo =  'https://api.rawg.io/api/games?dates=2020-01-01,2020-12-31&ordering=-added?key=f58ccbebc042468c979cde0ac7353b65'
         
-        
+        //f58ccbebc042468c979cde0ac7353b65
+
     
         
         fetch(apiUrlTwo).then(function(response){
@@ -27,5 +30,12 @@ var apiDataFunction = function() {
         
         };
     
-    apiDataFunction();
+    //apiDataFunction();
     apiDataFunctionTwo();
+
+    // modal for searching game types
+    $(document).ready(function(){
+        $('.modal').modal();
+      });
+
+      //https://corycalaway.github.io/gamer-portal/
