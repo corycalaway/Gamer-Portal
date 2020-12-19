@@ -20,20 +20,20 @@
     <link href="./assets/css/style.css" rel="stylesheet" />
   </head>
   <body>
-    <nav class="grey lighten-1" role="navigation">
+    <nav class="black lighten-1" role="navigation">
       <div class="nav-wrapper container">
 
         <!-- svg -->
         <img
-    src="./assets/images/online-games-symbol-of-a-monitor-and-a-game-control.svg"
-    alt="triangle with all three sides equal"
-    height="87"
-    width="100" />
+        src="./assets/images/online-games-symbol-of-a-monitor-and-a-game-control.svg"
+        alt="triangle with all three sides equal"
+        height="87"
+        width="100" />
         <ul class="right hide-on-med-and-down">
-          <li><a href="#">Navbar Link</a></li>
+          <li><a href="#">Search</a></li>
         </ul>
         <ul id="nav-mobile" class="sidenav">
-          <li><a href="#">Navbar Link</a></li>
+          <li><a href="#">Search History</a></li>
         </ul>
         <a href="#" data-target="nav-mobile" class="sidenav-trigger"
           ><i class="material-icons">menu</i></a
@@ -57,17 +57,66 @@
       </div>
       <section class="container centerJustify">
       <!-- Modal Trigger -->
-      <button data-target="modal1" class="btn modal-trigger">Modal</button>
+      <button data-target="modal1" class="btn modal-trigger">Ready Up!</button>
 
       <!-- Modal Structure -->
       <div id="modal1" class="modal">
-        <div class="modal-content">
-         <h4>Modal Header</h4>
-         <p>A bunch of text</p>
+        <div class="modal-content container">
+          <div class='row'>
+         <h4 class='col l12'>Pick a Genre to find a Random Game!</h4>
+          </div>
+         <div class='row'>
+         <div id="action" class="col l3">
+          <p>Action</p>
+         </div>
+         <div id="indie" class="col l3">>
+          <!-- <a>Action</a> --> action
+         </div>
+         <div id="adventure" class="col l3">>
+          <!-- <a>Action</a> --> action
+         </div>
+         <div id="rpg" class="col l3">>
+          <!-- <a>Action</a> --> action
+         </div>
         </div>
-        <div class="modal-footer">
-         <a href="#!" class="modal-close waves-effect waves-green btn-flat"
-           >Agree</a>
+        <div class='row'>
+         <div id="strategy" class="col l3">>
+          <!-- <a>Action</a> --> action
+         </div>
+           
+         <div id="shooter" class="col l3">>
+          <!-- <a>Action</a> --> action
+         </div>
+        
+           <div id="casual" class="col l3">>
+          <!-- <a>Action</a> --> action
+         </div>
+         <div id="simulation" class="col l3">>
+          <!-- <a>Action</a> --> action
+         </div>
+         </div>
+           <a href="#!" id="puzzle" class="modal-close waves-effect waves-green btn-flat"
+           >Puzzle</a>
+           <a href="#!" id="arcade" class="modal-close waves-effect waves-green btn-flat"
+           >Arcade</a>
+           <a href="#!" id="platformer" class="modal-close waves-effect waves-green btn-flat"
+           >Platformer</a>
+           <a href="#!" id="racing" class="modal-close waves-effect waves-green btn-flat"
+           >Racing</a>
+           <a href="#!" id="sports" class="modal-close waves-effect waves-green btn-flat"
+           >Sports</a>
+           <a href="#!" id="mmo" class="modal-close waves-effect waves-green btn-flat"
+           >MMO</a>
+           <a href="#!" id="fighting" class="modal-close waves-effect waves-green btn-flat"
+           >Fighting</a>
+           <a href="#!" id="family" class="modal-close waves-effect waves-green btn-flat"
+           >Family</a>
+           <a href="#!" id="boardgames" class="modal-close waves-effect waves-green btn-flat"
+           >Boardgames</a>
+           <a href="#!" id="educational" class="modal-close waves-effect waves-green btn-flat"
+           >Educational</a>
+           <a href="#!" id="card" class="modal-close waves-effect waves-green btn-flat"
+           >Card</a>
         </div>
       </div>
     </section>
