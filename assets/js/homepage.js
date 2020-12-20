@@ -234,6 +234,8 @@ fetch(apiUrlCheapShark).then(function (response) {
    console.log(testing)
    var testFilter = data.filter(gameDetails => gameDetails.external.indexOf(gameName) >= 0)
    console.log(testFilter)
+   var testFilter = data.filter(gameDetails => gameDetails.external.indexOf(gameName) === 0)
+   console.log(testFilter)
   });
 });
 
@@ -259,3 +261,5 @@ $(document).ready(function () {
 // };
 // apiDataFunctionThree();
 //https://corycalaway.github.io/gamer-portal/
+
+//testing branch
