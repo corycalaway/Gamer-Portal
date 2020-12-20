@@ -2,15 +2,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.modalImg  {
+  }
+  
+  .modalImg  {
     /* background-image: "https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg"; */
     height: 100px;
     background-size: contain;
     background-repeat: no-repeat;
-}
-
-#modal1 {
+  }
+  
+  #modal1 {
     width: 1500px;
-}
+  }
