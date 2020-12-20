@@ -1,5 +1,5 @@
 //var gameName = "";
-
+ 
 //var action = document.getElementById('action').src='https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg';
 
 //$("#action").css("background-image", "url('https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg')");
@@ -10,6 +10,9 @@ var apiDataFunction = function () {
   //var apiUrl = "https://api.rawg.io/api/games?dates=2020-01-01,2020-12-31&ordering=-added?key=f58ccbebc042468c979cde0ac7353b65"
   //var apiUrl = "https://api.rawg.io/api/games?genres=4"
   var apiUrl = "https://api.rawg.io/api/genres";
+
+  //ask about fetching specific string values.
+
 
   fetch(apiUrl).then(function (response) {
     response.json().then(function (data) {
@@ -194,12 +197,17 @@ var apiDataFunctionTwo = function (gameGenre) {
   // var apiUrlTwo =  'https://api.rawg.io/api/games?dates=2020-01-01,2020-12-31&platforms=4&key=f58ccbebc042468c979cde0ac7353b65'
   //f58ccbebc042468c979cde0ac7353b65
 
-  
+  // generates random number to change randomly selected game after each click.
+  var randomNumGen = Math.floor(Math.random() * 20); 
+  console.log(randomNumGen)
 
   fetch(apiUrlTwo).then(function (response) {
     response.json().then(function (data) {
       console.log(data);
-      var gameName = data.results[0].name
+
+      
+      var gameName = data.results[randomNumGen].name
+      console.log(gameName);
       apiDataFunctionCheapShark(gameName)
     });
   });
@@ -214,7 +222,18 @@ var apiUrlCheapShark = "https://www.cheapshark.com/api/1.0/games?title=" + gameN
 fetch(apiUrlCheapShark).then(function (response) {
   response.json().then(function (data) {
     console.log(data);
-   
+   //String.prototype.indexOf()
+
+   //indexes position of text
+   var test2 = data[0].external;
+   console.log(test2)
+   var test3 = data[0].internalName;
+   console.log(test3)
+   console.log(gameName)
+   var testing = (test2.indexOf(gameName))
+   console.log(testing)
+   var testFilter = data.filter(gameDetails => gameDetails.external.indexOf(gameName) >= 0)
+   console.log(testFilter)
   });
 });
 
@@ -226,4 +245,17 @@ $(document).ready(function () {
   $(".modal").modal();
 });
 
+// var apiDataFunctionThree = function () {
+
+// var apiUrlTwo = "https://api.rawg.io/api/games?ordering=-metacritic"
+
+// fetch(apiUrlTwo).then(function (response) {
+//   response.json().then(function (data) {
+//     console.log(data);
+    
+//   });
+// });
+
+// };
+// apiDataFunctionThree();
 //https://corycalaway.github.io/gamer-portal/
