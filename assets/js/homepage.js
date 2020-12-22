@@ -188,6 +188,7 @@ var apiDataFunctionTwo = function (gameGenre) {
   var apiUrlTwo =
     "https://api.rawg.io/api/games?genres=" +
     gameGenre +
+    // most popular games from 2000 to 2020
     "&dates=2000-01-01,2020-12-31&ordering=-added";
   //var apiUrlTwo = "https://www.cheapshark.com/api/1.0/games?title=" + gameName + "&limit=60&exact=0";
   //var apiUrlTwo = 'https://api.rawg.io/api/games?id=3328?'
@@ -216,7 +217,7 @@ var apiDataFunctionTwo = function (gameGenre) {
 
 // function to find discount on cheapshark api
 var apiDataFunctionCheapShark = function (gameName) {
-
+// name of game for discount search
 var apiUrlCheapShark = "https://www.cheapshark.com/api/1.0/games?title=" + gameName + "&limit=60&exact=0";
 
 fetch(apiUrlCheapShark).then(function (response) {
@@ -233,6 +234,8 @@ fetch(apiUrlCheapShark).then(function (response) {
    var testing = (test2.indexOf(gameName))
    console.log(testing)
    var testFilter = data.filter(gameDetails => gameDetails.external.indexOf(gameName) >= 0)
+   console.log(testFilter)
+   var testFilter = data.filter(gameDetails => gameDetails.external.indexOf(gameName) === 0)
    console.log(testFilter)
   });
 });
@@ -259,3 +262,5 @@ $(document).ready(function () {
 // };
 // apiDataFunctionThree();
 //https://corycalaway.github.io/gamer-portal/
+
+//testing branch
