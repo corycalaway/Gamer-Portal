@@ -1,5 +1,5 @@
 //var gameName = "";
- 
+
 //var action = document.getElementById('action').src='https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg';
 
 //$("#action").css("background-image", "url('https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg')");
@@ -12,7 +12,6 @@ var apiDataFunction = function () {
   var apiUrl = "https://api.rawg.io/api/genres";
 
   //ask about fetching specific string values.
-
 
   fetch(apiUrl).then(function (response) {
     response.json().then(function (data) {
@@ -184,7 +183,7 @@ var apiDataFunction = function () {
 var apiDataFunctionTwo = function (gameGenre) {
   // var apiUrlTwo =  "https://api.rawg.io/api/platforms?key=f58ccbebc042468c979cde0ac7353b65"
   // fetches data for anticipated 2020 games
-  
+
   var apiUrlTwo =
     "https://api.rawg.io/api/games?genres=" +
     gameGenre +
@@ -199,48 +198,101 @@ var apiDataFunctionTwo = function (gameGenre) {
   //f58ccbebc042468c979cde0ac7353b65
 
   // generates random number to change randomly selected game after each click.
-  var randomNumGen = Math.floor(Math.random() * 20); 
-  console.log(randomNumGen)
+  var randomNumGen = Math.floor(Math.random() * 20);
+  console.log(randomNumGen);
 
   fetch(apiUrlTwo).then(function (response) {
     response.json().then(function (data) {
       console.log(data);
 
-      
-      var gameName = data.results[randomNumGen].name
+      var gameName = data.results[randomNumGen].name;
       console.log(gameName);
-      apiDataFunctionCheapShark(gameName)
+      var resultVideoData = (data.results[randomNumGen].clip.clip)
+
+      apiDataFunctionCheapShark(gameName);
+
+      resultVideo(resultVideoData)
     });
   });
-  
 };
 
 // function to find discount on cheapshark api
 var apiDataFunctionCheapShark = function (gameName) {
-// name of game for discount search
-var apiUrlCheapShark = "https://www.cheapshark.com/api/1.0/games?title=" + gameName + "&limit=60&exact=0";
+  // name of game for discount search
+  var apiUrlCheapShark =
+    "https://www.cheapshark.com/api/1.0/games?title=" +
+    gameName +
+    "&limit=60&exact=0";
 
-fetch(apiUrlCheapShark).then(function (response) {
-  response.json().then(function (data) {
-    console.log(data);
-   //String.prototype.indexOf()
+  fetch(apiUrlCheapShark).then(function (response) {
+    response.json().then(function (data) {
+      console.log(data);
+      //String.prototype.indexOf()
 
-   //indexes position of text
-   var test2 = data[0].external;
-   console.log(test2)
-   var test3 = data[0].internalName;
-   console.log(test3)
-   console.log(gameName)
-   var testing = (test2.indexOf(gameName))
-   console.log(testing)
-   var testFilter = data.filter(gameDetails => gameDetails.external.indexOf(gameName) >= 0)
-   console.log(testFilter)
-   var testFilter = data.filter(gameDetails => gameDetails.external.indexOf(gameName) === 0)
-   console.log(testFilter)
+      //indexes position of text
+      var test2 = data[0].external;
+      console.log(test2);
+      var test3 = data[0].internalName;
+      console.log(test3);
+      console.log(gameName);
+      var testing = test2.indexOf(gameName);
+      console.log(testing);
+      var testFilter = data.filter(
+        (gameDetails) => gameDetails.external.indexOf(gameName) >= 0
+      );
+      console.log(testFilter);
+      var testFilter = data.filter(
+        (gameDetails) => gameDetails.external.indexOf(gameName) === 0
+      );
+      
+      
+      //console.log(testFilter);
+
+
+    });
   });
-});
-
 };
+// function resultVideo(resultVideoData){
+    
+//   var videourl = "url(" + resultVideoData + ")"; // set the url to your video file here
+//   var videocontainer = '#returnedVideo'; // set the ID of the container that you want to insert the video in
+//   //var parameter = new Date().getMilliseconds();  //  generate variable based on current date/time
+
+//   var video = '<video width="1102" height="720" id="intro-video" autoplay loop src="' + videourl + '"></video>'; // setup the video element
+
+//   $(videocontainer).append(video); // insert the video element into its container
+
+//   //videl = $(document).find('#intro-video')[0]; // find the newly inserterd video
+  
+//   //videl.load(); // load the video (it will autoplay because we've set it as a parameter of the video)
+
+// }
+// var resultVideo = function(resultVideoData){
+//   console.log(resultVideoData)
+//   var returnedVideo = document.getElementById("#returnedVideo")
+//   var videlem = document.createElement('video');
+  
+//   var sourceMP4 = document.createElement("source"); 
+//   sourceMP4.type = "video/mp4";
+//   sourceMP4.src = "url(" + resultVideoData + ")"
+//   sourceMP4.autoplay = true;
+//   returnedVideo.appendChild(videlem);
+//   videlem.appendChild(sourceMP4);
+
+// }
+
+// loads video of game
+var resultVideo = function(resultVideoData) {
+  console.log(resultVideoData)
+ var returnedVideo = document.getElementById("returnedVideo");
+ //document.getElementById('#returnedVideo').src="images/my_other_image.png"
+ returnedVideo.src = resultVideoData
+ console.log(returnedVideo)
+ var gameVideo = document.getElementById("gameVideo")
+  gameVideo.load()
+}
+
+
 apiDataFunction();
 
 // modal for searching game types
@@ -255,7 +307,7 @@ $(document).ready(function () {
 // fetch(apiUrlTwo).then(function (response) {
 //   response.json().then(function (data) {
 //     console.log(data);
-    
+
 //   });
 // });
 
