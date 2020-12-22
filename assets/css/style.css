@@ -28,3 +28,14 @@
     position: relative;
     left: 50px;
   }
+
+  .reference {
+    font-size: .7vw;
+      background-color: gray;
+      text-decoration: none;
+      color: inherit;
+  }
+
+  a {
+      color: black
+  }
