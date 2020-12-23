@@ -22,7 +22,7 @@ var apiDataFunction = function () {
       var instance = M.Modal.getInstance(modalSelect);
       var modalFormat = document.getElementById('modalFormat')
 
-      for (let i = 0; i < 19; i++) {
+      for (let i = 0; i < data.results.length; i++) {
        // const element = array[i];
        console.log(data.results[i])
       console.log(i)
