@@ -25,9 +25,9 @@
       color: white;
       background-color: black;
       width: fit-content;
-    position: relative;
-    left: 50px;
-  }
+      position: relative;
+      left: 50px;
+    }
 
   .reference {
     font-size: .7vw;
