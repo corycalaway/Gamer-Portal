@@ -76,25 +76,21 @@ var apiDataFunctionTwo = function (gameGenre) {
   
   fetch(apiUrlTwo).then(function (response) {
     response.json().then(function (data) {
-   
+   console.log(data)
 
       var gameName = data.results[randomNumGen].name;
+      console.log(gameName)
      
+      // later look into adding background image when clip is null
       var resultVideoData = (data.results[randomNumGen].clip.clip)
       console.log(data.results[randomNumGen].metacritic)
 
-      // created div for metacritic score
-      var metacriticScore = document.getElementById('metacriticScore')
-      var metacriticDiv = document.createElement("div");
-      var metacriticText = (data.results[randomNumGen].metacritic)
-      //metacriticDiv.text(metacriticText)
-      metacriticDiv.classList.add('metacriticStyle')
-      // .text(metacriticText)
-      metacriticScore.appendChild(metacriticDiv);
-
-      $(".metacriticStyle")
-      //.css("background-image", "url(" + data.results[i].image_background + ")")
-      .text(metacriticText)
+      // metacritic score
+    
+       var metacriticText = (data.results[randomNumGen].metacritic)
+       
+       $(".metacriticStyle")
+       .text(metacriticText)
      
 
       
@@ -117,8 +113,17 @@ var apiDataFunctionCheapShark = function (gameName) {
 
   fetch(apiUrlCheapShark).then(function (response) {
     response.json().then(function (data) {
-      
+      console.log(data)
       //String.prototype.indexOf()
+      var gameId = data[0].steamAppID;
+      
+
+      $(".discountDiv")
+      //.css("background-image", "url(" + data.results[i].image_background + ")")
+      .css("background-image", `url(${data[0].thumb})`).text('Cheapest Discount Found: $' + data[0].cheapest)
+     
+     
+
 
       //indexes position of text
       var test2 = data[0].external;
