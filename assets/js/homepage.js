@@ -148,6 +148,7 @@ var apiDataFunctionCheapShark = function (gameName) {
     });
   });
 };
+
 // function resultVideo(resultVideoData){
     
 //   var videourl = "url(" + resultVideoData + ")"; // set the url to your video file here
@@ -195,6 +196,14 @@ apiDataFunction();
 // modal for searching game types
 $(document).ready(function () {
   $(".modal").modal();
+});
+
+$(document).ready(function(){
+  $('.materialboxed').materialbox();
+});
+
+$(document).ready(function(){
+  $('.tooltipped').tooltip();
 });
 
 // var apiDataFunctionThree = function () {
