@@ -240,11 +240,19 @@ var apiHighestRated = 'https://api.rawg.io/api/games?dates=2001-01-01,' + dateTi
     var highestRatedGameBox = $('<div>')
     .addClass('imageSize')
 
+    if (data.results[randomNumGen + i].background_image === null) {
+      console.log('fail')
+      var highestRatedGameOne = $('<i>')
+      .addClass('material-icons iconImageFail')
+      .attr('id', 'highestRatedGame' + i)
+      .text('stars')
+
+    } else {
    var highestRatedGameOne = $('<div>')
    .addClass('highestRatedFormat')
    .attr('id', 'highestRatedGame' + i)
    .css("background-image", "url(" + data.results[randomNumGen + i].background_image + ")")
-
+    }
    $("#highestRatedGames").append(highestRatedCard)
    
    $(highestRatedCard).append(highestRatedGameBox)
