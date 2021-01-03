@@ -33,7 +33,7 @@ fetch(apiUrlHistory).then(function(response) {
 
     var recentlySearchedCard = $('<div>')
      .addClass('cardDisplay card deep-orange cardReset')
-  
+    .attr('id', 'clickElement' + list[i])
      var recentlySearchedGameName = $('<div>')
     .addClass('recentlySearchedFormatText')
     .text(data.name)
@@ -61,6 +61,12 @@ fetch(apiUrlHistory).then(function(response) {
     $(recentlySearchedGameBox).append(recentlySearchedGameOne)
 
 
+    $('#clickElement' + list[i]).on('click',function(){
+      console.log(list[i])
+
+      var gameId = list[i]
+      gameIdFunction(gameId)
+    })
   })
 })}
 };
@@ -234,6 +240,7 @@ var gameIdFunction = function(gameId, gameName) {
         response.json().then(function (data) {
           console.log(data)
 
+          gameName=data.name
       // later look into adding background image when clip is null
       var resultVideoData = (data.clip.clip)
       console.log(data.metacritic)
@@ -477,3 +484,4 @@ highestRatedGames();
 // };
 // apiDataFunctionThree();
 //https://corycalaway.github.io/gamer-portal/
+
