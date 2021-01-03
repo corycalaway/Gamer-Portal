@@ -212,20 +212,35 @@ var apiDataFunctionTwo = function (gameGenre) {
       }
 
 
+
       $('.cardReset').remove();
       apiSearchHistory()
 
       list.push(gameId)
         localStorage.setItem("saveGameId", JSON.stringify(list));
+    
+   
+     gameIdFunction(gameId, gameName)
+          
+          });
+        });
+      };
+      
+var gameIdFunction = function(gameId, gameName) {
 
-     
+      var apiUrlId = 'https://api.rawg.io/api/games/' + gameId;
+
+      fetch(apiUrlId).then(function(response) {
+        response.json().then(function (data) {
+          console.log(data)
+
       // later look into adding background image when clip is null
-      var resultVideoData = (data.results[randomNumGen].clip.clip)
-      console.log(data.results[randomNumGen].metacritic)
+      var resultVideoData = (data.clip.clip)
+      console.log(data.metacritic)
 
       // metacritic score
     
-       var metacriticText = (data.results[randomNumGen].metacritic)
+       var metacriticText = (data.metacritic)
        
        $(".metacriticStyle")
        .text(metacriticText)
@@ -237,10 +252,9 @@ var apiDataFunctionTwo = function (gameGenre) {
       apiDataFunctionCheapShark(gameName);
 
       resultVideo(resultVideoData)
-    });
-  });
-};
-
+        })
+      })
+    }
 // function to find discount on cheapshark api
 var apiDataFunctionCheapShark = function (gameName) {
   // name of game for discount search
