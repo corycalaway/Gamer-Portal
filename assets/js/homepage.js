@@ -6,8 +6,29 @@
 //$("#action").css("background-image", "url('https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg')");
 
 // date time function
+var list = JSON.parse(localStorage.getItem("saveGameId")) || [];
+
+while (list.length > 5) {
+  list.shift();
+  console.log(list)
+}
 
 var dateTime = luxon.DateTime.local();
+
+//search game by id for api
+var apiSearchHistory = function() {
+  
+var apiUrlHistory = 'https://api.rawg.io/api/games/3612'
+
+fetch(apiUrlHistory).then(function(response) {
+  response.json().then(function (data) {
+    console.log(data)
+    
+  })
+})
+};
+
+apiSearchHistory()
 
 var apiDataFunction = function () {
   //var apiUrl =  "https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15"
@@ -20,6 +41,7 @@ var apiDataFunction = function () {
   fetch(apiUrl).then(function (response) {
     response.json().then(function (data) {
   
+     
 
       gameGenre = 0;
       var modalSelect = document.getElementById("modal1");
@@ -83,7 +105,13 @@ var apiDataFunctionTwo = function (gameGenre) {
    console.log(data)
 
       var gameName = data.results[randomNumGen].name;
+      var gameId = data.results[randomNumGen].id;
       console.log(gameName)
+      console.log(gameId)
+
+      list.push(gameId)
+        localStorage.setItem("saveGameId", JSON.stringify(list));
+
      
       // later look into adding background image when clip is null
       var resultVideoData = (data.results[randomNumGen].clip.clip)
@@ -329,5 +357,3 @@ highestRatedGames();
 // };
 // apiDataFunctionThree();
 //https://corycalaway.github.io/gamer-portal/
-
-//testing branch
