@@ -18,7 +18,7 @@ var dateTime = luxon.DateTime.local();
 //search game by id for api
 var apiSearchHistory = function() {
   
-var apiUrlHistory = 'https://api.rawg.io/api/games/3612'
+var apiUrlHistory = 'https://api.rawg.io/api/games/' + list[0];
 
 fetch(apiUrlHistory).then(function(response) {
   response.json().then(function (data) {
