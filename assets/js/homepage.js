@@ -208,7 +208,7 @@ var highestRatedGames = function() {
 console.log(dateTime)
 
 // generates random number to show games from different generes
-var randomNumGen = Math.floor(Math.random() * 20);
+var randomNumGen = Math.floor(Math.random() * 15);
 
 var apiHighestRated = 'https://api.rawg.io/api/games?dates=2001-01-01,' + dateTime + '&ordering=-rating'
 
@@ -216,9 +216,29 @@ var apiHighestRated = 'https://api.rawg.io/api/games?dates=2001-01-01,' + dateTi
   
   fetch(apiHighestRated).then(function (response) {
     response.json().then(function (data) {
+    console.log(data)
+    console.log(randomNumGen)
    console.log(data.results[randomNumGen].name)
+   console.log(data.results[randomNumGen].rating)
+   console.log(data.results[randomNumGen + 1].name)
+   console.log(data.results[randomNumGen + 2].name)
+   console.log(data.results[randomNumGen + 3].name)
+   console.log(data.results[randomNumGen + 4].name)
+      
+   var highestRatedGameOne = $('<div>')
+   .addClass('highestRatedFormat')
+   .attr('id', 'highestRatedGameOne')
+   .css("background-image", "url(" + data.results[randomNumGen].background_image + ")")
+   $("#highestRatedGames").append(highestRatedGameOne)
+//    var highestRatedGames = document.querySelector("#highestRatedGames");
 
-  
+// console.log(data.results[randomNumGen].background_image)
+//    //highestRatedGames.innerHTML = "<img src='" + data.results[randomNumGen].background_image + "' />"
+
+//    //.css("background-image", "url(" + data.results[i].image_background + ")")
+//    highestRatedGames.classList.add('highestRatedFormat')
+   
+//    $("#highestRatedGames").css("background-image", "url(" + data.results[randomNumGen].background_image + ")")
      
       
     });
