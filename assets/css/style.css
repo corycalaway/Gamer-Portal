@@ -62,6 +62,13 @@ text-align: center;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-  
-   
+  }
+
+  .highestRatedFormatText {
+    border-color: orange;
+  }
+
+  .cardDisplay {
+    display: flex; 
+    justify-content:left;
   }

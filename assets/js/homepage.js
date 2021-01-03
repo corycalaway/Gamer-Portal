@@ -228,6 +228,9 @@ var apiHighestRated = 'https://api.rawg.io/api/games?dates=2001-01-01,' + dateTi
 
    for (let i = 0; i < 5; i++) {
 
+    var highestRatedCard = $('<div>')
+    .addClass('cardDisplay card deep-orange')
+
     var highestRatedGameName = $('<div>')
     .addClass('highestRatedFormatText')
     .text(data.results[randomNumGen + i].name)
@@ -237,8 +240,10 @@ var apiHighestRated = 'https://api.rawg.io/api/games?dates=2001-01-01,' + dateTi
    .attr('id', 'highestRatedGame' + i)
    .css("background-image", "url(" + data.results[randomNumGen + i].background_image + ")")
 
-   $("#highestRatedGames").append(highestRatedGameName)
-   $("#highestRatedGames").append(highestRatedGameOne)
+   $("#highestRatedGames").append(highestRatedCard)
+   $(highestRatedCard).append(highestRatedGameOne)
+   $(highestRatedCard).append(highestRatedGameName)
+   
    }
 
   //  var highestRatedGameTwo = $('<div>')
