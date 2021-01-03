@@ -230,6 +230,32 @@ var apiHighestRated = 'https://api.rawg.io/api/games?dates=2001-01-01,' + dateTi
    .attr('id', 'highestRatedGameOne')
    .css("background-image", "url(" + data.results[randomNumGen].background_image + ")")
    $("#highestRatedGames").append(highestRatedGameOne)
+
+   var highestRatedGameTwo = $('<div>')
+   .addClass('highestRatedFormat')
+   .attr('id', 'highestRatedGameTwo')
+   .css("background-image", "url(" + data.results[randomNumGen + 1].background_image + ")")
+
+   var highestRatedGameThree = $('<div>')
+   .addClass('highestRatedFormat')
+   .attr('id', 'highestRatedGameThree')
+   .css("background-image", "url(" + data.results[randomNumGen + 2].background_image + ")")
+
+   var highestRatedGameFour = $('<div>')
+   .addClass('highestRatedFormat')
+   .attr('id', 'highestRatedGameFour')
+   .css("background-image", "url(" + data.results[randomNumGen + 3].background_image + ")")
+
+   var highestRatedGameFive = $('<div>')
+   .addClass('highestRatedFormat')
+   .attr('id', 'highestRatedGameFive')
+   .css("background-image", "url(" + data.results[randomNumGen + 4].background_image + ")")
+
+   $("#highestRatedGames").append(highestRatedGameOne)
+   $("#highestRatedGames").append(highestRatedGameTwo)
+   $("#highestRatedGames").append(highestRatedGameThree)
+   $("#highestRatedGames").append(highestRatedGameFour)
+   $("#highestRatedGames").append(highestRatedGameFive)
 //    var highestRatedGames = document.querySelector("#highestRatedGames");
 
 // console.log(data.results[randomNumGen].background_image)
