@@ -226,6 +226,8 @@ var apiHighestRated = 'https://api.rawg.io/api/games?dates=2001-01-01,' + dateTi
    console.log(data.results[randomNumGen + 4].name)
       
 
+   // creates loop for highest rated data
+   // need to generate alternate image for when background image = null
    for (let i = 0; i < 5; i++) {
 
     var highestRatedCard = $('<div>')
@@ -235,14 +237,19 @@ var apiHighestRated = 'https://api.rawg.io/api/games?dates=2001-01-01,' + dateTi
     .addClass('highestRatedFormatText')
     .text(data.results[randomNumGen + i].name)
 
+    var highestRatedGameBox = $('<div>')
+    .addClass('imageSize')
+
    var highestRatedGameOne = $('<div>')
    .addClass('highestRatedFormat')
    .attr('id', 'highestRatedGame' + i)
    .css("background-image", "url(" + data.results[randomNumGen + i].background_image + ")")
 
    $("#highestRatedGames").append(highestRatedCard)
-   $(highestRatedCard).append(highestRatedGameOne)
+   
+   $(highestRatedCard).append(highestRatedGameBox)
    $(highestRatedCard).append(highestRatedGameName)
+   $(highestRatedGameBox).append(highestRatedGameOne)
    
    }
 
