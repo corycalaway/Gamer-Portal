@@ -8,9 +8,13 @@
 // date time function
 var list = JSON.parse(localStorage.getItem("saveGameId")) || [];
 
-while (list.length > 5) {
+//starts page with last five searches
+while (list.length > 6) {
+  localStorage.removeItem(0)
   list.shift();
   console.log(list)
+
+  localStorage.setItem("saveGameId", JSON.stringify(list));
 }
 
 var dateTime = luxon.DateTime.local();
@@ -18,7 +22,9 @@ var dateTime = luxon.DateTime.local();
 //search game by id for api
 var apiSearchHistory = function() {
   
-var apiUrlHistory = 'https://api.rawg.io/api/games/' + list[0];
+for (let i = 0; i < 5; i++) {
+
+var apiUrlHistory = 'https://api.rawg.io/api/games/' + list[i];
 
 fetch(apiUrlHistory).then(function(response) {
   response.json().then(function (data) {
@@ -26,7 +32,7 @@ fetch(apiUrlHistory).then(function(response) {
     recentlySearchedGames
 
     var recentlySearchedCard = $('<div>')
-     .addClass('cardDisplay card deep-orange')
+     .addClass('cardDisplay card deep-orange cardReset')
   
      var recentlySearchedGameName = $('<div>')
     .addClass('recentlySearchedFormatText')
@@ -54,10 +60,11 @@ fetch(apiUrlHistory).then(function(response) {
     $(recentlySearchedCard).append(recentlySearchedGameName)
     $(recentlySearchedGameBox).append(recentlySearchedGameOne)
 
-    
+
   })
-})
+})}
 };
+apiSearchHistory()
 
 // var apiHighestRated = 'https://api.rawg.io/api/games?dates=2001-01-01,' + dateTime + '&ordering=-rating'
 
@@ -116,7 +123,7 @@ fetch(apiUrlHistory).then(function(response) {
 
 
 
-apiSearchHistory()
+
 
 var apiDataFunction = function () {
   //var apiUrl =  "https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15"
@@ -196,6 +203,17 @@ var apiDataFunctionTwo = function (gameGenre) {
       var gameId = data.results[randomNumGen].id;
       console.log(gameName)
       console.log(gameId)
+
+      //restores local saved data to last five searches
+      while (list.length > 5) {
+        list.shift();
+        console.log(list)
+        localStorage.setItem("saveGameId", JSON.stringify(list));
+      }
+
+
+      $('.cardReset').remove();
+      apiSearchHistory()
 
       list.push(gameId)
         localStorage.setItem("saveGameId", JSON.stringify(list));
