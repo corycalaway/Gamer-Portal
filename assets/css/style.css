@@ -9,11 +9,12 @@
     height: 100px;
     width: 100px;
     background-position: center;
-    background-size: contain;
+    background-size: 100%;
     background-repeat: no-repeat;
     color: white;
     text-align: center;
     z-index: -1;
+  
    
   }
   
