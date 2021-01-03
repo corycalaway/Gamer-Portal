@@ -23,10 +23,98 @@ var apiUrlHistory = 'https://api.rawg.io/api/games/' + list[0];
 fetch(apiUrlHistory).then(function(response) {
   response.json().then(function (data) {
     console.log(data)
+    recentlySearchedGames
+
+    var recentlySearchedCard = $('<div>')
+     .addClass('cardDisplay card deep-orange')
+  
+     var recentlySearchedGameName = $('<div>')
+    .addClass('recentlySearchedFormatText')
+    .text(data.name)
+
+    var recentlySearchedGameBox = $('<div>')
+     .addClass('imageSize')
+
+//     if (data.results[randomNumGen + i].background_image === null) {
+//       console.log('fail')
+//       var highestRatedGameOne = $('<i>')
+//       .addClass('material-icons iconImageFail')
+//       .attr('id', 'highestRatedGame' + i)
+//       .text('stars')
+
+//     } else {
+    var recentlySearchedGameOne = $('<div>')
+    .addClass('recentlySearchedFormat')
+   .attr('id', 'recentlySearchedGame')
+   .css("background-image", "url(" + data.background_image + ")")
+//     }
+   $("#recentlySearchedGames").append(recentlySearchedCard)
+   
+   $(recentlySearchedCard).append(recentlySearchedGameBox)
+    $(recentlySearchedCard).append(recentlySearchedGameName)
+    $(recentlySearchedGameBox).append(recentlySearchedGameOne)
+
     
   })
 })
 };
+
+// var apiHighestRated = 'https://api.rawg.io/api/games?dates=2001-01-01,' + dateTime + '&ordering=-rating'
+
+//   // generates random number to change randomly selected game after each click.
+  
+//   fetch(apiHighestRated).then(function (response) {
+//     response.json().then(function (data) {
+//     console.log(data)
+//     console.log(randomNumGen)
+//    console.log(data.results[randomNumGen].name)
+//    console.log(data.results[randomNumGen].rating)
+//    console.log(data.results[randomNumGen + 1].name)
+//    console.log(data.results[randomNumGen + 2].name)
+//    console.log(data.results[randomNumGen + 3].name)
+//    console.log(data.results[randomNumGen + 4].name)
+      
+//       // selects top game from 5 generes
+//    // creates loop for highest rated data
+//    // need to generate alternate image for when background image = null
+//    for (let i = 0; i < 5; i++) {
+
+//     var highestRatedCard = $('<div>')
+//     .addClass('cardDisplay card deep-orange')
+
+//     var highestRatedGameName = $('<div>')
+//     .addClass('highestRatedFormatText')
+//     .text(data.results[randomNumGen + i].name)
+
+//     var highestRatedGameBox = $('<div>')
+//     .addClass('imageSize')
+
+//     if (data.results[randomNumGen + i].background_image === null) {
+//       console.log('fail')
+//       var highestRatedGameOne = $('<i>')
+//       .addClass('material-icons iconImageFail')
+//       .attr('id', 'highestRatedGame' + i)
+//       .text('stars')
+
+//     } else {
+//    var highestRatedGameOne = $('<div>')
+//    .addClass('highestRatedFormat')
+//    .attr('id', 'highestRatedGame' + i)
+//    .css("background-image", "url(" + data.results[randomNumGen + i].background_image + ")")
+//     }
+//    $("#highestRatedGames").append(highestRatedCard)
+   
+//    $(highestRatedCard).append(highestRatedGameBox)
+//    $(highestRatedCard).append(highestRatedGameName)
+//    $(highestRatedGameBox).append(highestRatedGameOne)
+   
+//    }
+
+
+
+
+
+
 
 apiSearchHistory()
 
