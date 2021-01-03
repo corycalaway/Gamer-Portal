@@ -225,7 +225,7 @@ var apiHighestRated = 'https://api.rawg.io/api/games?dates=2001-01-01,' + dateTi
    console.log(data.results[randomNumGen + 3].name)
    console.log(data.results[randomNumGen + 4].name)
       
-
+      // selects top game from 5 generes
    // creates loop for highest rated data
    // need to generate alternate image for when background image = null
    for (let i = 0; i < 5; i++) {
