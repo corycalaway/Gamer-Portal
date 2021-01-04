@@ -154,7 +154,7 @@ var apiDataFunction = function () {
       
       var modalDiv = document.createElement("div");
       
-      modalDiv.classList.add('modalImg', 'col', 'l3', 'genreClass' + i)
+      modalDiv.classList.add('modalImg', 'col', 'l4', 'genreClass' + i)
       modalFormat.appendChild(modalDiv);
 
         var genreText = (data.results[i].name)
@@ -251,7 +251,13 @@ var gameIdFunction = function(gameId, gameName) {
        
        $(".metacriticStyle")
        .text(metacriticText)
-     
+       if (metacriticText >= 80) {
+         $(".metacriticStyle").addClass("greenmeta")
+       } else if (metacriticText >= 60 && metacriticText <= 79){
+          $(".metacriticStyle").addClass("yellowmeta")
+       } else {
+         $("metacriticStyle").addClass("redmeta")
+       } 
 
       
    
@@ -313,12 +319,13 @@ var apiDataFunctionCheapShark = function (gameName) {
 
 // loads video of game
 var resultVideo = function(resultVideoData) {
-
+  var gameVideo = document.getElementById("gameVideo")
+  gameVideo.classList.remove('hide');
  var returnedVideo = document.getElementById("returnedVideo");
  //document.getElementById('#returnedVideo').src="images/my_other_image.png"
  returnedVideo.src = resultVideoData
  console.log(returnedVideo)
- var gameVideo = document.getElementById("gameVideo")
+ 
  gameVideo.autoplay = true;
   gameVideo.load()
 };
