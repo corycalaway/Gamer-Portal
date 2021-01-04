@@ -308,34 +308,9 @@ var apiDataFunctionCheapShark = function (gameName) {
   });
 };
 
-// function resultVideo(resultVideoData){
+
     
-//   var videourl = "url(" + resultVideoData + ")"; // set the url to your video file here
-//   var videocontainer = '#returnedVideo'; // set the ID of the container that you want to insert the video in
-//   //var parameter = new Date().getMilliseconds();  //  generate variable based on current date/time
 
-//   var video = '<video width="1102" height="720" id="intro-video" autoplay loop src="' + videourl + '"></video>'; // setup the video element
-
-//   $(videocontainer).append(video); // insert the video element into its container
-
-//   //videl = $(document).find('#intro-video')[0]; // find the newly inserterd video
-  
-//   //videl.load(); // load the video (it will autoplay because we've set it as a parameter of the video)
-
-// }
-// var resultVideo = function(resultVideoData){
-//   console.log(resultVideoData)
-//   var returnedVideo = document.getElementById("#returnedVideo")
-//   var videlem = document.createElement('video');
-  
-//   var sourceMP4 = document.createElement("source"); 
-//   sourceMP4.type = "video/mp4";
-//   sourceMP4.src = "url(" + resultVideoData + ")"
-//   sourceMP4.autoplay = true;
-//   returnedVideo.appendChild(videlem);
-//   videlem.appendChild(sourceMP4);
-
-// }
 
 // loads video of game
 var resultVideo = function(resultVideoData) {
@@ -416,41 +391,7 @@ var apiHighestRated = 'https://api.rawg.io/api/games?dates=2001-01-01,' + dateTi
    $(highestRatedGameBox).append(highestRatedGameOne)
    
    }
-
-  //  var highestRatedGameTwo = $('<div>')
-  //  .addClass('highestRatedFormat')
-  //  .attr('id', 'highestRatedGameTwo')
-  //  .css("background-image", "url(" + data.results[randomNumGen + 1].background_image + ")")
-
-  //  var highestRatedGameThree = $('<div>')
-  //  .addClass('highestRatedFormat')
-  //  .attr('id', 'highestRatedGameThree')
-  //  .css("background-image", "url(" + data.results[randomNumGen + 2].background_image + ")")
-
-  //  var highestRatedGameFour = $('<div>')
-  //  .addClass('highestRatedFormat')
-  //  .attr('id', 'highestRatedGameFour')
-  //  .css("background-image", "url(" + data.results[randomNumGen + 3].background_image + ")")
-
-  //  var highestRatedGameFive = $('<div>')
-  //  .addClass('highestRatedFormat')
-  //  .attr('id', 'highestRatedGameFive')
-  //  .css("background-image", "url(" + data.results[randomNumGen + 4].background_image + ")")
-
-  //  $("#highestRatedGames").append(highestRatedGameOne)
-  //  $("#highestRatedGames").append(highestRatedGameTwo)
-  //  $("#highestRatedGames").append(highestRatedGameThree)
-  //  $("#highestRatedGames").append(highestRatedGameFour)
-  //  $("#highestRatedGames").append(highestRatedGameFive)
-//    var highestRatedGames = document.querySelector("#highestRatedGames");
-
-// console.log(data.results[randomNumGen].background_image)
-//    //highestRatedGames.innerHTML = "<img src='" + data.results[randomNumGen].background_image + "' />"
-
-//    //.css("background-image", "url(" + data.results[i].image_background + ")")
-//    highestRatedGames.classList.add('highestRatedFormat')
    
-//    $("#highestRatedGames").css("background-image", "url(" + data.results[randomNumGen].background_image + ")")
      
       
     });
@@ -458,19 +399,6 @@ var apiHighestRated = 'https://api.rawg.io/api/games?dates=2001-01-01,' + dateTi
 };
 highestRatedGames();
 
-
-// var randomNumGen = Math.floor(Math.random() * 20);
-  
-//   fetch(apiUrlTwo).then(function (response) {
-//     response.json().then(function (data) {
-//    console.log(data)
-
-//       var gameName = data.results[randomNumGen].name;
-//       console.log(gameName)
-     
-//       // later look into adding background image when clip is null
-//       var resultVideoData = (data.results[randomNumGen].clip.clip)
-//       console.log(data.results[randomNumGen].metacritic)
 $(document).ready(function(){
   $('.materialboxed').materialbox();
 });
@@ -479,18 +407,60 @@ $(document).ready(function(){
   $('.tooltipped').tooltip();
 });
 
-// var apiDataFunctionThree = function () {
+// most ancticipated games
+var anticipatedGames = function() { 
 
-// var apiUrlTwo = "https://api.rawg.io/api/games?ordering=-metacritic"
-
-// fetch(apiUrlTwo).then(function (response) {
-//   response.json().then(function (data) {
-//     console.log(data);
-
-//   });
-// });
-
-// };
-// apiDataFunctionThree();
-//https://corycalaway.github.io/gamer-portal/
-
+  console.log(dateTime)
+  
+  // generates random number to show games from different generes
+  var randomNumGen = Math.floor(Math.random() * 15);
+  //https://api.rawg.io/api/games?dates=2019-10-10,2020-10-10&ordering=-added
+  var apiAnticipated = 'https://api.rawg.io/api/games?dates=2019-10-10,' + dateTime + '&ordering=-added'
+  
+    // generates random number to change randomly selected game after each click.
+    
+    fetch(apiAnticipated).then(function (response) {
+      response.json().then(function (data) {
+      console.log(data)
+        
+        // selects top game from 5 generes
+     // creates loop for highest rated data
+     // need to generate alternate image for when background image = null
+     for (let i = 0; i < 5; i++) {
+  
+      var anticipatedCard = $('<div>')
+      .addClass('cardDisplay card deep-orange')
+  
+      var anticipatedGameName = $('<div>')
+      .addClass('anticipatedFormatText')
+      .text(data.results[randomNumGen + i].name)
+  
+      var anticipatedGameBox = $('<div>')
+      .addClass('imageSize')
+  
+      if (data.results[randomNumGen + i].background_image === null) {
+        console.log('fail')
+        var anticipatedGameOne = $('<i>')
+        .addClass('material-icons iconImageFail')
+        .attr('id', 'anticipatedGame' + i)
+        .text('stars')
+  
+      } else {
+     var anticipatedGameOne = $('<div>')
+     .addClass('anticipatedFormat')
+     .attr('id', 'anticipatedGame' + i)
+     .css("background-image", "url(" + data.results[randomNumGen + i].background_image + ")")
+      }
+     $("#anticipated").append(anticipatedCard)
+     
+     $(anticipatedCard).append(anticipatedGameBox)
+     $(anticipatedCard).append(anticipatedGameName)
+     $(anticipatedGameBox).append(anticipatedGameOne)
+     
+     }
+       
+        
+      });
+    });
+  };
+  anticipatedGames();
