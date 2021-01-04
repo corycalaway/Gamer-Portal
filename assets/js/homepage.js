@@ -307,6 +307,7 @@ var apiDataFunctionCheapShark = function (gameName) {
     });
   });
 };
+
 // function resultVideo(resultVideoData){
     
 //   var videourl = "url(" + resultVideoData + ")"; // set the url to your video file here
@@ -470,6 +471,14 @@ highestRatedGames();
 //       // later look into adding background image when clip is null
 //       var resultVideoData = (data.results[randomNumGen].clip.clip)
 //       console.log(data.results[randomNumGen].metacritic)
+$(document).ready(function(){
+  $('.materialboxed').materialbox();
+});
+
+$(document).ready(function(){
+  $('.tooltipped').tooltip();
+});
+
 // var apiDataFunctionThree = function () {
 
 // var apiUrlTwo = "https://api.rawg.io/api/games?ordering=-metacritic"
