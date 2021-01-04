@@ -32,7 +32,7 @@ fetch(apiUrlHistory).then(function(response) {
     recentlySearchedGames
 
     var recentlySearchedCard = $('<div>')
-     .addClass('cardDisplay card deep-orange cardReset')
+     .addClass('cardDisplay card red cardReset')
     .attr('id', 'clickElement' + list[i])
      var recentlySearchedGameName = $('<div>')
     .addClass('recentlySearchedFormatText')
@@ -93,7 +93,7 @@ apiSearchHistory()
 //    for (let i = 0; i < 5; i++) {
 
 //     var highestRatedCard = $('<div>')
-//     .addClass('cardDisplay card deep-orange')
+//     .addClass('cardDisplay card red')
 
 //     var highestRatedGameName = $('<div>')
 //     .addClass('highestRatedFormatText')
@@ -308,7 +308,6 @@ var apiDataFunctionCheapShark = function (gameName) {
   });
 };
 
-
     
 
 
@@ -362,7 +361,7 @@ var apiHighestRated = 'https://api.rawg.io/api/games?dates=2001-01-01,' + dateTi
    for (let i = 0; i < 5; i++) {
 
     var highestRatedCard = $('<div>')
-    .addClass('cardDisplay card deep-orange')
+    .addClass('cardDisplay card red')
 
     var highestRatedGameName = $('<div>')
     .addClass('highestRatedFormatText')
@@ -429,7 +428,7 @@ var anticipatedGames = function() {
      for (let i = 0; i < 5; i++) {
   
       var anticipatedCard = $('<div>')
-      .addClass('cardDisplay card deep-orange')
+      .addClass('cardDisplay card red')
   
       var anticipatedGameName = $('<div>')
       .addClass('anticipatedFormatText')
