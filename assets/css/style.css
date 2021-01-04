@@ -1,56 +1,109 @@
 .centerJustify {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modalImg  {
-    /* background-image: "https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg"; */
-    height: 100px;
-    width: 100px;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalImg  {
+  /* background-image: "https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg"; */
+  height: 100px;
+  width: 100px;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+  z-index: -1;
+
+ 
+}
+
+#modal1 {
+  width: 1500px;
+}
+
+.textGenre {
     color: white;
-    text-align: center;
-    z-index: -1;
-   
-  }
-  
-  #modal1 {
-    width: 1500px;
-  }
-  
-  .textGenre {
-      color: white;
-      background-color: black;
-      width: fit-content;
-      position: relative;
-      left: 50px;
-    }
-
-  .reference {
-    font-size: .7vw;
-      background-color: gray;
-      text-decoration: none;
-      color: inherit;
+    background-color: black;
+    width: fit-content;
+    position: relative;
+    left: 50px;
   }
 
-  a {
-      color: black
-  }
+.reference {
+  font-size: .7vw;
+    background-color: gray;
+    text-decoration: none;
+    color: inherit;
+}
 
-  .metacriticStyle {
+a {
+    color: black
+}
+
+.metacriticStyle {
 text-align: center;
-  }
+}
 
-  .discountDiv {
-    height: 200px;
-    width: 200px;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    color: black;
-    text-align: center;
-    z-index: -1;
-  }
+.discountDiv {
+  height: 200px;
+  width: 200px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: black;
+  text-align: center;
+  z-index: -1;
+}
+
+.highestRatedFormat  {
+  /* background-image: "https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg"; */
+  height: 9vw;
+ 
+
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border-radius: 15px 15px 0px 0px;
+}
+
+.cardDisplay {
+  border-radius: 15px;
+}
+
+.highestRatedFormatText {
+  border-color: orange;
+  text-align: center;
+  color: black;
+}
+
+.imageSize {
+  width: 100%;
+  height: 100%;
+}
+
+.iconImageFail {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 9vw;
+  align-items: center;
+  color: black;
+}
+
+.recentlySearchedFormat {
+  /* background-image: "https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg"; */
+  height: 9vw;
+ 
+
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border-radius: 15px 15px 0px 0px;
+}
+
+.recentlySearchedFormatText {
+  border-color: orange;
+  text-align: center;
+  color: black;
+}
