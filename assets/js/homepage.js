@@ -32,7 +32,7 @@ fetch(apiUrlHistory).then(function(response) {
     recentlySearchedGames
 
     var recentlySearchedCard = $('<div>')
-     .addClass('cardDisplay card deep-orange cardReset')
+     .addClass('cardDisplay card red cardReset')
     .attr('id', 'clickElement' + list[i])
      var recentlySearchedGameName = $('<div>')
     .addClass('recentlySearchedFormatText')
@@ -93,7 +93,7 @@ apiSearchHistory()
 //    for (let i = 0; i < 5; i++) {
 
 //     var highestRatedCard = $('<div>')
-//     .addClass('cardDisplay card deep-orange')
+//     .addClass('cardDisplay card red')
 
 //     var highestRatedGameName = $('<div>')
 //     .addClass('highestRatedFormatText')
@@ -154,7 +154,7 @@ var apiDataFunction = function () {
       
       var modalDiv = document.createElement("div");
       
-      modalDiv.classList.add('modalImg', 'col', 'l3', 'genreClass' + i)
+      modalDiv.classList.add('modalImg', 'col', 'l4', 'genreClass' + i)
       modalFormat.appendChild(modalDiv);
 
         var genreText = (data.results[i].name)
@@ -251,7 +251,13 @@ var gameIdFunction = function(gameId, gameName) {
        
        $(".metacriticStyle")
        .text(metacriticText)
-     
+       if (metacriticText >= 80) {
+         $(".metacriticStyle").addClass("greenmeta")
+       } else if (metacriticText >= 60 && metacriticText <= 79){
+          $(".metacriticStyle").addClass("yellowmeta")
+       } else {
+         $("metacriticStyle").addClass("redmeta")
+       } 
 
       
    
@@ -308,18 +314,18 @@ var apiDataFunctionCheapShark = function (gameName) {
   });
 };
 
-
     
 
 
 // loads video of game
 var resultVideo = function(resultVideoData) {
-
+  var gameVideo = document.getElementById("gameVideo")
+  gameVideo.classList.remove('hide');
  var returnedVideo = document.getElementById("returnedVideo");
  //document.getElementById('#returnedVideo').src="images/my_other_image.png"
  returnedVideo.src = resultVideoData
  console.log(returnedVideo)
- var gameVideo = document.getElementById("gameVideo")
+ 
  gameVideo.autoplay = true;
   gameVideo.load()
 };
@@ -362,7 +368,7 @@ var apiHighestRated = 'https://api.rawg.io/api/games?dates=2001-01-01,' + dateTi
    for (let i = 0; i < 5; i++) {
 
     var highestRatedCard = $('<div>')
-    .addClass('cardDisplay card deep-orange')
+    .addClass('cardDisplay card red')
 
     var highestRatedGameName = $('<div>')
     .addClass('highestRatedFormatText')
@@ -429,7 +435,7 @@ var anticipatedGames = function() {
      for (let i = 0; i < 5; i++) {
   
       var anticipatedCard = $('<div>')
-      .addClass('cardDisplay card deep-orange')
+      .addClass('cardDisplay card red')
   
       var anticipatedGameName = $('<div>')
       .addClass('anticipatedFormatText')

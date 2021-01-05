@@ -14,8 +14,12 @@
   color: white;
   text-align: center;
   z-index: -1;
+  cursor: pointer;
+  border-radius: 15px;
+}
 
- 
+.modalImg:hover {
+  opacity: 0.75;
 }
 
 #modal1 {
@@ -106,4 +110,33 @@ text-align: center;
   border-color: #ff1100;
   text-align: center;
   color: black;
+}
+
+video {
+  border-radius: 15px;
+}
+
+.hide {
+  display: none;
+}
+
+.greenmeta {
+  background-color: green;
+  font-size: 32px;
+  border-radius: 15px;
+  margin: 45px;
+}
+
+.yellowmeta {
+  background-color: yellow;
+  font-size: 32px;
+  border-radius: 15px;
+  margin: 45px;
+}
+
+.redmeta {
+  background-color: red;
+  font-size: 32px;
+  border-radius: 15px;
+  margin: 45px;
 }
