@@ -317,14 +317,26 @@ var apiDataFunctionCheapShark = function (gameName) {
     response.json().then(function (data) {
       console.log(data)
       //String.prototype.indexOf()
-      var gameId = data[0].steamAppID;
+    //  var gameId = data[0].steamAppID;
       
-
+    // if no deal is found display text
+    if (data.length === 0) {
+      $(".discountDiv").text('Unable to locate a discount for ' + gameName + '.')
+    } else {
+      // display discount
       $(".discountDiv")
       //.css("background-image", "url(" + data.results[i].image_background + ")")
       .css("background-image", `url(${data[0].thumb})`).text('Cheapest Discount Found: $' + data[0].cheapest)
+
+      $('.discountDiv').on('click',function(){
+        //window.location.href = 'https://store.steampowered.com/app/' + data[0].steamAppID;
+
+        // links to cheap deal
+        window.location.href = 'https://www.cheapshark.com/redirect?dealID=' + data[0].cheapestDealID;
+      })
+
      
-     
+    }
 
 
       //indexes position of text
