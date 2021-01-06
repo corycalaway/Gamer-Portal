@@ -242,14 +242,22 @@ var gameIdFunction = function(gameId, gameName) {
           console.log(data)
 
           gameName=data.name
+
+
+
+
+         
       
           // checks if video is available and dynamically adds and removes element
-      var gameVideo = document.getElementById("gameVideo")
+      // var gameVideo = document.getElementById("gameVideo")
       if (data.clip === null) {
         var resultVideoData = (data.background_image)
-        gameVideo.classList.add('hide');
-        // places background image when no video is available
-        resultBackgroundImage(resultVideoData)
+        $('#gameVideo').remove();
+        var videoFail = document.createElement("div");
+        $(videoFail).attr('id', 'gameVideo').css("background-image", `url(${data.background_image})`).addClass('videoFailSize')
+        $('#attachVideo').append(videoFail)
+        
+
       } else {
         $('#gameVideo').remove();
         var resultVideoData = (data.clip.clip)

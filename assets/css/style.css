@@ -140,3 +140,15 @@ video {
   border-radius: 15px;
   margin: 45px;
 }
+
+/* image size for fail video */
+.videoFailSize {
+  height: 200px;
+  width: 200px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: black;
+  text-align: center;
+  z-index: -1;
+}
