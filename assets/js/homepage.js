@@ -205,35 +205,35 @@ var gameIdFunction = function(gameId, gameName) {
 
       // when no metacritic score is found
        if (metacriticText === null) {
-        $(".metacriticStyle").addClass("bluemeta").text('No Metacritic Score Found')
+        $(".metacriticStyle").addClass("bluemeta").text('No Metacritic Score Found').removeClass('greenmeta yellowmeta redmeta')
        } else {
 
        $(".metacriticStyle")
        .text(metacriticText)
 
        if (metacriticText >= 80) {
-         $(".metacriticStyle").addClass("greenmeta")
+         $(".metacriticStyle").addClass("greenmeta").removeClass('bluemeta yellowmeta redmeta')
 
        } else if (metacriticText >= 60 && metacriticText <= 79){
-          $(".metacriticStyle").addClass("yellowmeta")
+          $(".metacriticStyle").addClass("yellowmeta").removeClass('greenmeta bluemeta redmeta')
        } else {
-         $(".metacriticStyle").addClass("redmeta")
+         $(".metacriticStyle").addClass("redmeta").removeClass('greenmeta yellowmeta bluemeta')
        } 
       }
 
        // user rating score
        if (ratingText === null) {
-        $(".ratingStyle").addClass("bluemeta").text('No User Rating Found')
+        $(".ratingStyle").addClass("bluemeta").text('No User Rating Found').removeClass('greenmeta yellowmeta redmeta')
 
        } else {
        $(".ratingStyle")
        .text(ratingText)
        if (ratingText >= 4) {
-         $(".ratingStyle").addClass("greenmeta")
+         $(".ratingStyle").addClass("greenmeta").removeClass('bluemeta yellowmeta redmeta')
        } else if (ratingText >= 3 && ratingText < 4){
-          $(".ratingStyle").addClass("yellowmeta")
+          $(".ratingStyle").addClass("yellowmeta").removeClass('greenmeta bluemeta redmeta')
        } else {
-         $(".ratingStyle").addClass("redmeta")
+         $(".ratingStyle").addClass("redmeta").removeClass('greenmeta yellowmeta bluemeta')
        } 
       }
       
