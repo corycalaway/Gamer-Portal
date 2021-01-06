@@ -20,7 +20,7 @@
     <link href="./assets/css/style.css" rel="stylesheet" />
   </head>
   <body class="grey lighten-3">
-    <nav class="grey darken-1" role="navigation">
+    <nav class="grey darken-1 nav" role="navigation">
       <div class="nav-wrapper container">
 
         <!-- svg -->
@@ -30,7 +30,7 @@
         height="70"
         width="70" />
         <ul class="right hide-on-med-and-down">
-          <li><a href="#section" class="grey darken-4 btn tooltipped" data-position="bottom" data-tooltip="Navigate to Your Recent Searches!">Recent Searches</a></li>
+          <li><a href="#section" class="grey darken-4 btn tooltipped nav" data-position="bottom" data-tooltip="Navigate to Your Recent Searches!">Recent Searches</a></li>
         </ul>
         <a href="#" data-target="nav-mobile" class="sidenav-trigger"
           ><i class="material-icons">menu</i></a
@@ -54,7 +54,7 @@
       </div>
       <section class="grey lighten-3 container centerJustify">
       <!-- Modal Trigger -->
-      <button  data-target="modal1" class="grey darken-4 btn tooltipped modal-trigger" data-position="top" data-tooltip="Ready Up to Get Started!" >Ready Up!</button>
+      <button  data-target="modal1" class="grey darken-4 btn tooltipped modal-trigger nav" data-position="top" data-tooltip="Ready Up to Get Started!" >Ready Up!</button>
 
       <!-- Modal Structure -->
       <div id="modal1" class="modal">
@@ -105,7 +105,7 @@
       </section>
       <br /><br />
     </div>
-    <footer class="page-footer black">
+    <footer class="page-footer black nav">
       <div class="container">
         <div class="row">
           <div class="col s12 m4">
@@ -114,7 +114,7 @@
                 <i class="material-icons">search</i>
               </h2>
               <h5 class="center">Recently Searched Games</h5>
-              <div id='recentlySearchedGames'></div>
+              <div class="cursor" id='recentlySearchedGames'></div>
             </div>
           </div>
           <div class="col s12 m4">
@@ -123,7 +123,7 @@
                 <i class="material-icons">stars</i>
               </h2>
               <h5 class="center">Highest Rated Games</h5>
-              <div id='highestRatedGames'></div>
+              <div class="cursor" id='highestRatedGames'></div>
             </div>
           </div>
           <div id="mostAnticipated" class="col s12 m4">
@@ -132,7 +132,7 @@
                 <i class="material-icons">visibility</i>
               </h2>
               <h5 class="center">Most Anticipated Games of 2021</h5>
-              <div id="anticipated"></div>
+              <div class="cursor" id="anticipated"></div>
                 
             </div>
           </div>
@@ -143,7 +143,7 @@
         </div>
       </div>
     </footer>
-    <div class='reference'>
+    <div class='reference nav'>
       This site was made using:
     <a class="black-text text-lighten-3" href="http://materializecss.com"
     >Materialize</a
