@@ -129,6 +129,8 @@ var apiDataFunctionTwo = function (gameGenre) {
     response.json().then(function (data) {
 
       var gameName = data.results[randomNumGen].name;
+
+    
       var gameId = data.results[randomNumGen].id;
 
       //restores local saved data to last five searches
@@ -161,6 +163,7 @@ var gameIdFunction = function(gameId, gameName) {
 
           gameName = data.name
 
+          $('#gameNameDisplay').text(gameName)
       // checks if video is available and dynamically adds and removes element
       // var gameVideo = document.getElementById("gameVideo")
       if (data.clip === null) {
@@ -255,12 +258,14 @@ var apiDataFunctionCheapShark = function (gameName) {
       
     // if no deal is found display text
     if (data.length === 0) {
-      $(".discountDiv").text('Unable to locate a discount for ' + gameName + '.')
+      $(".discountDivText").text('Unable to locate a discount for ' + gameName + '.')
+      $(".discountDiv").css("background-image", '')
     } else {
       // display discount
-      $(".discountDiv")
+      
       //.css("background-image", "url(" + data.results[i].image_background + ")")
-      .css("background-image", `url(${data[0].thumb})`).text('Cheapest Discount Found: $' + data[0].cheapest)
+      $(".discountDivText").text('Cheapest Discount Found: $' + data[0].cheapest)
+      $(".discountDiv").css("background-image", `url(${data[0].thumb})`)
 
       $('.discountDiv').on('click',function(){
         //window.location.href = 'https://store.steampowered.com/app/' + data[0].steamAppID;
