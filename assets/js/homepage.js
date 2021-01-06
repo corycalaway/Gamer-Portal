@@ -238,11 +238,48 @@ var gameIdFunction = function(gameId, gameName) {
 
       fetch(apiUrlId).then(function(response) {
         response.json().then(function (data) {
+          console.log('under')
           console.log(data)
 
           gameName=data.name
-      // later look into adding background image when clip is null
-      var resultVideoData = (data.clip.clip)
+
+
+
+
+         
+      
+          // checks if video is available and dynamically adds and removes element
+      // var gameVideo = document.getElementById("gameVideo")
+      if (data.clip === null) {
+        var resultVideoData = (data.background_image)
+        $('#gameVideo').remove();
+        var videoFail = document.createElement("div");
+        $(videoFail).attr('id', 'gameVideo').css("background-image", `url(${data.background_image})`).addClass('videoFailSize')
+        $('#attachVideo').append(videoFail)
+        
+
+      } else {
+        $('#gameVideo').remove();
+        var resultVideoData = (data.clip.clip)
+        var video = $('<video />', {
+          id: 'gameVideo',
+          src: resultVideoData,
+          type: 'vide/mp4',
+          controls: true,
+          width: '320',
+          heigh: '240'
+        });
+        video.appendTo($('#attachVideo'))
+        
+        // gameVideo.classList.remove('hide');
+        // resultVideo(resultVideoData)
+      }
+
+// {/* <video class="z-depth-5 hide" id="gameVideo" width="320" height="240" controls>
+//                   <source id='returnedVideo' src='' type="video/mp4">
+//                 </video> */}
+
+
       console.log(data.metacritic)
 
       // metacritic score
@@ -264,7 +301,7 @@ var gameIdFunction = function(gameId, gameName) {
 
       apiDataFunctionCheapShark(gameName);
 
-      resultVideo(resultVideoData)
+      
         })
       })
     }
@@ -320,7 +357,7 @@ var apiDataFunctionCheapShark = function (gameName) {
 // loads video of game
 var resultVideo = function(resultVideoData) {
   var gameVideo = document.getElementById("gameVideo")
-  gameVideo.classList.remove('hide');
+ // gameVideo.classList.remove('hide');
  var returnedVideo = document.getElementById("returnedVideo");
  //document.getElementById('#returnedVideo').src="images/my_other_image.png"
  returnedVideo.src = resultVideoData
@@ -369,6 +406,7 @@ var apiHighestRated = 'https://api.rawg.io/api/games?dates=2001-01-01,' + dateTi
 
     var highestRatedCard = $('<div>')
     .addClass('cardDisplay card red')
+    .attr('id', 'highestRatedCard' + i)
 
     var highestRatedGameName = $('<div>')
     .addClass('highestRatedFormatText')
@@ -396,10 +434,17 @@ var apiHighestRated = 'https://api.rawg.io/api/games?dates=2001-01-01,' + dateTi
    $(highestRatedCard).append(highestRatedGameName)
    $(highestRatedGameBox).append(highestRatedGameOne)
    
-   }
    
+   // click card for highest rated section to search for game
+
+   $('#highestRatedCard' + i).on('click',function(){
+  console.log('pass')
+
+    var gameId = data.results[randomNumGen + i].id
+    gameIdFunction(gameId)
+  })
      
-      
+}    
     });
   });
 };
@@ -436,7 +481,8 @@ var anticipatedGames = function() {
   
       var anticipatedCard = $('<div>')
       .addClass('cardDisplay card red')
-  
+      .attr('id', 'anticipatedCard' + i)
+
       var anticipatedGameName = $('<div>')
       .addClass('anticipatedFormatText')
       .text(data.results[randomNumGen + i].name)
@@ -462,7 +508,15 @@ var anticipatedGames = function() {
      $(anticipatedCard).append(anticipatedGameBox)
      $(anticipatedCard).append(anticipatedGameName)
      $(anticipatedGameBox).append(anticipatedGameOne)
-     
+
+
+     // makes most ancitipated section clickable
+      $('#anticipatedCard' + i).on('click',function(){
+  console.log('pass')
+
+    var gameId = data.results[randomNumGen + i].id
+    gameIdFunction(gameId)
+  })
      }
        
         
@@ -470,3 +524,8 @@ var anticipatedGames = function() {
     });
   };
   anticipatedGames();
+
+
+  var resultBackgroundImage = function (resultBackgroundImage) {
+console.log(resultBackgroundImage)
+  }
