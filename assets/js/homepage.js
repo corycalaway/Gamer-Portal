@@ -369,6 +369,7 @@ var apiHighestRated = 'https://api.rawg.io/api/games?dates=2001-01-01,' + dateTi
 
     var highestRatedCard = $('<div>')
     .addClass('cardDisplay card red')
+    .attr('id', 'highestRatedCard' + i)
 
     var highestRatedGameName = $('<div>')
     .addClass('highestRatedFormatText')
@@ -396,10 +397,17 @@ var apiHighestRated = 'https://api.rawg.io/api/games?dates=2001-01-01,' + dateTi
    $(highestRatedCard).append(highestRatedGameName)
    $(highestRatedGameBox).append(highestRatedGameOne)
    
-   }
    
+   // click card for highest rated section to search for game
+
+   $('#highestRatedCard' + i).on('click',function(){
+  console.log('pass')
+
+    var gameId = data.results[randomNumGen + i].id
+    gameIdFunction(gameId)
+  })
      
-      
+}    
     });
   });
 };
@@ -436,7 +444,8 @@ var anticipatedGames = function() {
   
       var anticipatedCard = $('<div>')
       .addClass('cardDisplay card red')
-  
+      .attr('id', 'anticipatedCard' + i)
+
       var anticipatedGameName = $('<div>')
       .addClass('anticipatedFormatText')
       .text(data.results[randomNumGen + i].name)
@@ -462,7 +471,15 @@ var anticipatedGames = function() {
      $(anticipatedCard).append(anticipatedGameBox)
      $(anticipatedCard).append(anticipatedGameName)
      $(anticipatedGameBox).append(anticipatedGameOne)
-     
+
+
+     // makes most ancitipated section clickable
+      $('#anticipatedCard' + i).on('click',function(){
+  console.log('pass')
+
+    var gameId = data.results[randomNumGen + i].id
+    gameIdFunction(gameId)
+  })
      }
        
         
