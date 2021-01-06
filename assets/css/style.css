@@ -45,7 +45,7 @@ a {
     color: black
 }
 
-.metacriticStyle {
+.metacriticStyle, .ratingStyle {
 text-align: center;
 }
 
@@ -137,6 +137,13 @@ video {
 .redmeta {
   background-color: red;
   font-size: 32px;
+  border-radius: 15px;
+  margin: 45px;
+}
+
+.bluemeta {
+  background-color: rgb(37, 14, 240);
+  font-size: 25px;
   border-radius: 15px;
   margin: 45px;
 }
