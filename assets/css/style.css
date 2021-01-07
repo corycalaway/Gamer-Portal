@@ -45,19 +45,19 @@ a {
     color: black
 }
 
-.metacriticStyle {
+.metacriticStyle, .ratingStyle {
 text-align: center;
 }
 
 .discountDiv {
   height: 200px;
-  width: 200px;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   color: black;
   text-align: center;
   z-index: -1;
+  border-radius: 15px;
 }
 
 .highestRatedFormat  {
@@ -141,16 +141,24 @@ video {
   margin: 45px;
 }
 
+.bluemeta {
+  background-color: rgb(37, 14, 240);
+  font-size: 25px;
+  border-radius: 15px;
+  margin: 45px;
+}
+
 /* image size for fail video */
 .videoFailSize {
-  height: 200px;
-  width: 200px;
+  height: 240px;
+  width: 320px;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   color: black;
   text-align: center;
   z-index: -1;
+  border-radius: 10px;
 }
 
 .nav {
@@ -163,4 +171,23 @@ video {
 
 .cursor {
   cursor: pointer;
+}
+
+#gameNameDisplay {
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+  background-color: #ff1100;
+  font-size: 32px;
+  padding: 0px 10px;
+}
+
+#gameNameContainer {
+  margin: 100px 0px 0px 0px;
+}
+
+.gameNameAdjust {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px 0px 0px;
 }
