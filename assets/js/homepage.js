@@ -74,7 +74,7 @@ var apiDataFunction = function () {
       for (let i = 0; i < data.results.length; i++) {
         var modalDiv = document.createElement("div");
 
-        modalDiv.classList.add("modalImg", "col", "l4", "genreClass" + i);
+        modalDiv.classList.add("modalImg", "col","s12", "m6", "l4", "genreClass" + i);
         modalFormat.appendChild(modalDiv);
 
         var genreText = data.results[i].name;

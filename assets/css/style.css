@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-.modalImg  {
+.modalImg {
   /* background-image: "https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg"; */
   height: 100px;
   width: 100px;
@@ -27,26 +27,27 @@
 }
 
 .textGenre {
-    color: white;
-    background-color: black;
-    width: fit-content;
-    position: relative;
-    left: 50px;
-  }
+  color: white;
+  background-color: black;
+  width: fit-content;
+  position: relative;
+  left: 50px;
+}
 
 .reference {
-  font-size: .7vw;
-    background-color: gray;
-    text-decoration: none;
-    color: inherit;
+  font-size: 0.7vw;
+  background-color: gray;
+  text-decoration: none;
+  color: inherit;
 }
 
 a {
-    color: black
+  color: black;
 }
 
-.metacriticStyle, .ratingStyle {
-text-align: center;
+.metacriticStyle,
+.ratingStyle {
+  text-align: center;
 }
 
 .discountDiv {
@@ -60,10 +61,9 @@ text-align: center;
   border-radius: 15px;
 }
 
-.highestRatedFormat  {
+.highestRatedFormat {
   /* background-image: "https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg"; */
   height: 9vw;
- 
 
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -75,7 +75,8 @@ text-align: center;
   border-radius: 15px;
 }
 
-.highestRatedFormatText, .anticipatedFormatText{
+.highestRatedFormatText,
+.anticipatedFormatText {
   border-color: #ff1100;
   text-align: center;
   color: black;
@@ -95,10 +96,10 @@ text-align: center;
   color: black;
 }
 
-.recentlySearchedFormat, .anticipatedFormat {
+.recentlySearchedFormat,
+.anticipatedFormat {
   /* background-image: "https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg"; */
   height: 9vw;
- 
 
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -106,7 +107,8 @@ text-align: center;
   border-radius: 15px 15px 0px 0px;
 }
 
-.recentlySearchedFormatText, .anticipatedFormatText{
+.recentlySearchedFormatText,
+.anticipatedFormatText {
   border-color: #ff1100;
   text-align: center;
   color: black;
@@ -192,24 +194,57 @@ video {
   margin: 100px 0px 0px 0px;
 }
 
+.containerTop {
+  margin: 100px
+}
+
+@media only screen and (max-width: 1250px) {
+  #modal1 {
+    width: 1000px;
+  }
+}
+
+@media only screen and (max-width: 1060px) {
+  .containerTop {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  #modal1 {
+    width: 600px;
+  }
+
+  .m4 {
+    width: 100%;
+  }
+}
+
+/* 600 and below */
 @media only screen and (max-width: 600px) {
-.card {
-  position: relative;
-  height: 400px;
-  margin: .5rem 0 1rem 0;
-}
+  .card {
+    position: relative;
+    height: 300px;
+    margin: 0.5rem 0 1rem 0;
+  }
 
-.imageSize {
-  width: 100%;
-  height: 95%;
-}
+  .imageSize {
+    width: 100%;
+    height: 92%;
+  }
 
-.recentlySearchedFormat, .anticipatedFormat, .highestRatedFormat {
-  height: 100%;
-  width: 100%;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  border-radius: 15px 15px 0px 0px;
-}
+  .recentlySearchedFormat,
+  .anticipatedFormat,
+  .highestRatedFormat {
+    height: 100%;
+    width: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border-radius: 15px 15px 0px 0px;
+  }
+
+  #modal1 {
+    width: 400px;
+  }
 }
