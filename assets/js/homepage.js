@@ -162,8 +162,14 @@ var gameIdFunction = function(gameId, gameName) {
         response.json().then(function (data) {
 
           gameName = data.name
-
+          $('#gameNameDisplay').remove();
+          
+          var gameNameDisplay = document.createElement('div')
+          $(gameNameDisplay).attr('id', 'gameNameDisplay')
+          .text(gameName)
+          $('#gameNameAttach').append(gameNameDisplay)
           $('#gameNameDisplay').text(gameName)
+
       // checks if video is available and dynamically adds and removes element
       // var gameVideo = document.getElementById("gameVideo")
       if (data.clip === null) {
