@@ -1,5 +1,5 @@
 // date time function
-var dateTime = luxon.DateTime.local()
+var dateTime = luxon.DateTime.local();
 
 // stores game id for search history
 var list = JSON.parse(localStorage.getItem("saveGameId")) || [];
@@ -13,16 +13,13 @@ while (list.length > 6) {
 
 // search history game by id for api
 var apiSearchHistory = function () {
-
   // loop goes through api using gameid provided from previous searches stored in local storage
   for (let i = 0; i < list.length; i++) {
-
     // creates api url for specific game ids
     var apiUrlHistory = "https://api.rawg.io/api/games/" + list[i];
 
     fetch(apiUrlHistory).then(function (response) {
       response.json().then(function (data) {
-
         // creates cards that hold recently searched image and text
         var recentlySearchedCard = $("<div>")
           .addClass("cardDisplay card red cardReset")
@@ -48,6 +45,9 @@ var apiSearchHistory = function () {
         $("#clickElement" + list[i]).on("click", function () {
           var gameId = list[i];
 
+          // removes and resets search history cards
+          $(".cardReset").remove();
+          apiSearchHistory();
           // uses game id to re display the game when clicked
           gameIdFunction(gameId);
         });
@@ -58,7 +58,6 @@ var apiSearchHistory = function () {
 
 // activates search history on load of page
 apiSearchHistory();
-
 
 // function used to created displayed generes in modal when ready up is selected
 var apiDataFunction = function () {
@@ -73,7 +72,6 @@ var apiDataFunction = function () {
 
       // loop to create each from genres in order to select
       for (let i = 0; i < data.results.length; i++) {
-
         var modalDiv = document.createElement("div");
 
         modalDiv.classList.add("modalImg", "col", "l4", "genreClass" + i);
@@ -105,14 +103,15 @@ var apiDataFunctionTwo = function (gameGenre) {
     "https://api.rawg.io/api/games?genres=" +
     gameGenre +
     // most popular games from 2000 to current
-    "&dates=2000-01-01," + dateTime + "&ordering=-added&platforms=4";
+    "&dates=2000-01-01," +
+    dateTime +
+    "&ordering=-added&platforms=4";
 
   // generates random number to change randomly selected game after each click.
   var randomNumGen = Math.floor(Math.random() * 20);
 
   fetch(apiUrlTwo).then(function (response) {
     response.json().then(function (data) {
-
       // gets game name from api
       var gameName = data.results[randomNumGen].name;
 
@@ -141,13 +140,11 @@ var apiDataFunctionTwo = function (gameGenre) {
 
 // uses gameid and name to display information to page
 var gameIdFunction = function (gameId, gameName) {
-
   // creates url using gameid to ensure appropriate game is searched
   var apiUrlId = "https://api.rawg.io/api/games/" + gameId;
 
   fetch(apiUrlId).then(function (response) {
     response.json().then(function (data) {
-
       // makes sure game name is appropriately updated
       gameName = data.name;
       $("#gameNameDisplay").remove();
@@ -194,7 +191,6 @@ var gameIdFunction = function (gameId, gameName) {
           .text("No Metacritic Score Found")
           .removeClass("greenmeta yellowmeta redmeta");
       } else {
-
         // display metacritic score
         $(".metacriticStyle").text(metacriticText);
 
@@ -253,7 +249,6 @@ var apiDataFunctionCheapShark = function (gameName) {
 
   fetch(apiUrlCheapShark).then(function (response) {
     response.json().then(function (data) {
-
       // if no deal is found display text
       if (data.length === 0) {
         $(".discountDivText").text(
@@ -261,7 +256,6 @@ var apiDataFunctionCheapShark = function (gameName) {
         );
         $(".discountDiv").css("background-image", "");
       } else {
-
         // display discount
         $(".discountDivText").text(
           "Cheapest Discount Found: $" + data[0].cheapest
@@ -269,7 +263,6 @@ var apiDataFunctionCheapShark = function (gameName) {
         $(".discountDiv").css("background-image", `url(${data[0].thumb})`);
 
         $(".discountDiv").on("click", function () {
-
           // links to cheap deal
           window.location.href =
             "https://www.cheapshark.com/redirect?dealID=" +
@@ -289,7 +282,6 @@ $(document).ready(function () {
 
 // gets data for highest rated games
 var highestRatedGames = function () {
-
   // generates random number to show games from different generes
   var randomNumGen = Math.floor(Math.random() * 15);
 
@@ -300,7 +292,6 @@ var highestRatedGames = function () {
 
   fetch(apiHighestRated).then(function (response) {
     response.json().then(function (data) {
-
       // selects top game from 5 generes
       // creates loop for highest rated data
       for (let i = 0; i < 5; i++) {
@@ -321,7 +312,6 @@ var highestRatedGames = function () {
             .attr("id", "highestRatedGame" + i)
             .text("stars");
         } else {
-          
           // creates image for highest rated games
           var highestRatedGameOne = $("<div>")
             .addClass("highestRatedFormat")
@@ -358,7 +348,6 @@ $(document).ready(function () {
 
 // most ancticipated games
 var anticipatedGames = function () {
-
   // generates random number to show games from different generes
   var randomNumGen = Math.floor(Math.random() * 15);
 
@@ -370,7 +359,6 @@ var anticipatedGames = function () {
 
   fetch(apiAnticipated).then(function (response) {
     response.json().then(function (data) {
-
       // selects top game from 5 generes
       // creates loop for highest rated data
       for (let i = 0; i < 5; i++) {
