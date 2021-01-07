@@ -22,11 +22,15 @@
   opacity: 0.75;
 }
 
-.recentlySearchedFormat:hover {
+.highestRatedFormat:hover {
   opacity: 0.75;
 }
 
 .anticipatedFormat:hover {
+  opacity: 0.75;
+}
+
+.recentlySearchedFormat:hover {
   opacity: 0.75;
 }
 
