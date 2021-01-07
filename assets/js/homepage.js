@@ -15,7 +15,7 @@ while (list.length > 6) {
 var apiSearchHistory = function () {
 
   // loop goes through api using gameid provided from previous searches stored in local storage
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < list.length; i++) {
 
     // creates api url for specific game ids
     var apiUrlHistory = "https://api.rawg.io/api/games/" + list[i];
