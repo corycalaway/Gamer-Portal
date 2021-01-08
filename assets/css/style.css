@@ -60,6 +60,7 @@ a {
 .metacriticStyle,
 .ratingStyle {
   text-align: center;
+  padding: 0px 10px;
 }
 
 .discountDiv {
@@ -207,6 +208,11 @@ video {
 
 .containerTop {
   margin: 100px
+}
+
+.scoreAlign {
+  display: flex;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 1250px) {

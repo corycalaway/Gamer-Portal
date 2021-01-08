@@ -180,8 +180,8 @@ var gameIdFunction = function (gameId, gameName) {
       }
 
       // saves metacritic and user rating to variables
-      var metacriticText = data.metacritic;
-      var ratingText = data.rating;
+      var metacriticText = data.metacritic +'/100';
+      var ratingText = data.rating + '/5';
       console.log(metacriticText);
 
       // when no metacritic score is found
