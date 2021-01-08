@@ -180,8 +180,8 @@ var gameIdFunction = function (gameId, gameName) {
       }
 
       // saves metacritic and user rating to variables
-      var metacriticText = data.metacritic +'/100';
-      var ratingText = data.rating + '/5';
+      var metacriticText = data.metacritic;
+      var ratingText = data.rating;
       console.log(metacriticText);
 
       // when no metacritic score is found
@@ -192,7 +192,7 @@ var gameIdFunction = function (gameId, gameName) {
           .removeClass("greenmeta yellowmeta redmeta");
       } else {
         // display metacritic score
-        $(".metacriticStyle").text(metacriticText);
+        $(".metacriticStyle").text(metacriticText + '/100');
 
         if (metacriticText >= 80) {
           $(".metacriticStyle")
@@ -217,7 +217,7 @@ var gameIdFunction = function (gameId, gameName) {
           .removeClass("greenmeta yellowmeta redmeta");
       } else {
         // display rating score
-        $(".ratingStyle").text(ratingText);
+        $(".ratingStyle").text(ratingText + '/5');
         if (ratingText >= 4) {
           $(".ratingStyle")
             .addClass("greenmeta")
