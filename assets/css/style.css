@@ -165,7 +165,6 @@ video {
 /* image size for fail video */
 .videoFailSize {
   height: 240px;
-  width: 320px;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
