@@ -5,7 +5,7 @@
 * After genere is selected a video game from selected genre will be returned as a recomendation.
     - Video clip of the Video Game will be displayed
     - Discount and link to discount for recommended game will be displayed. 
-    - Metacritic and User Rating for recommended game will be displayhed.
+    - Metacritic and User Rating for recommended game will be displayed.
 * Gamer portal also allows user to select previously found games again from a list of five of the most recently found games. 
 * Users also have the option of selecting a game from a list of highest rated games and most anticipated games. 
 
