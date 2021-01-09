@@ -80,7 +80,7 @@ var apiDataFunction = function () {
         var genreText = data.results[i].name;
 
         $(".genreClass" + i)
-          .css("background-image", `url(${data.results[i].image_background})`)
+          .css({"background-image": `url(${data.results[i].image_background})`, "-webkit-text-stroke" : "2px black"})
           .text(genreText)
           .click(function () {
             gameGenre = data.results[i].id;
