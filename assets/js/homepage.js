@@ -173,8 +173,8 @@ var gameIdFunction = function (gameId, gameName) {
           src: resultVideoData,
           type: "vide/mp4",
           controls: true,
-          width: "320",
-          heigh: "240",
+          width: '30vw',
+         
         });
         video.appendTo($("#attachVideo"));
       }
@@ -368,7 +368,7 @@ var anticipatedGames = function () {
 
         var anticipatedGameName = $("<div>")
           .addClass("anticipatedFormatText")
-          .text(data.results[randomNumGen + i].name);
+          .text(data.results[randomNumGen + i].name)
 
         var anticipatedGameBox = $("<div>").addClass("imageSize");
 

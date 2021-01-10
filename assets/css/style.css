@@ -206,7 +206,8 @@ video {
   display: flex;
   justify-content: center;
   border-radius: 15px;
-  background-color: #ff1100;
+  /* background-color: #ff1100; */
+  -webkit-text-stroke : .5px #ff1100;
   font-size: 32px;
   padding: 0px 10px;
 }
