@@ -206,8 +206,9 @@ video {
   display: flex;
   justify-content: center;
   border-radius: 15px;
-  background-color: #ff1100;
-  font-size: 32px;
+  /* background-color: #ff1100; */
+  -webkit-text-stroke : .5px #ff1100;
+  font-size: 45px;
   padding: 0px 10px;
 }
 
@@ -230,6 +231,9 @@ video {
   justify-content: center;
 }
 
+.red {
+  background: linear-gradient(90deg, rgba(255,17,0,1) 0%, rgba(249,255,0,1) 100%);
+}
 @media only screen and (max-width: 1250px) {
   #modal1 {
     width: 1000px;

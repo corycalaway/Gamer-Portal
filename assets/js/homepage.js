@@ -80,7 +80,7 @@ var apiDataFunction = function () {
         var genreText = data.results[i].name;
 
         $(".genreClass" + i)
-          .css("background-image", `url(${data.results[i].image_background})`)
+          .css({"background-image": `url(${data.results[i].image_background})`, "-webkit-text-stroke" : "2px black"})
           .text(genreText)
           .click(function () {
             gameGenre = data.results[i].id;
@@ -173,8 +173,8 @@ var gameIdFunction = function (gameId, gameName) {
           src: resultVideoData,
           type: "vide/mp4",
           controls: true,
-          width: "320",
-          heigh: "240",
+          width: '30vw',
+         
         });
         video.appendTo($("#attachVideo"));
       }
@@ -368,7 +368,7 @@ var anticipatedGames = function () {
 
         var anticipatedGameName = $("<div>")
           .addClass("anticipatedFormatText")
-          .text(data.results[randomNumGen + i].name);
+          .text(data.results[randomNumGen + i].name)
 
         var anticipatedGameBox = $("<div>").addClass("imageSize");
 
