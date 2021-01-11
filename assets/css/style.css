@@ -8,8 +8,8 @@ body {
   font-family: 'Goldman', cursive;
 }
 
+/* modal */
 .modalImg {
-  /* background-image: "https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg"; */
   height: 100px;
   width: 100px;
   opacity: .95;
@@ -25,24 +25,16 @@ body {
   font-weight: bold;
 }
 
+#modal1 {
+  width: 1500px;
+}
+
 .modalImg:hover {
   opacity: 0.5;
 }
 
-.highestRatedFormat:hover {
+.highestRatedFormat:hover, .anticipatedFormat:hover, .recentlySearchedFormat:hover {
   opacity: 0.75;
-}
-
-.anticipatedFormat:hover {
-  opacity: 0.75;
-}
-
-.recentlySearchedFormat:hover {
-  opacity: 0.75;
-}
-
-#modal1 {
-  width: 1500px;
 }
 
 .textGenre {
@@ -82,9 +74,7 @@ a {
 }
 
 .highestRatedFormat {
-  /* background-image: "https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg"; */
   height: 9vw;
-
   background-size: 100% 100%;
   background-repeat: no-repeat;
   overflow: hidden;
@@ -142,6 +132,7 @@ video {
   display: none;
 }
 
+/* metacritic and rating */
 .greenmeta {
   background-color: green;
   font-size: 32px;
@@ -206,7 +197,6 @@ video {
   display: flex;
   justify-content: center;
   border-radius: 15px;
-  /* background-color: #ff1100; */
   -webkit-text-stroke : .5px #ff1100;
   font-size: 45px;
   padding: 0px 10px;
@@ -234,6 +224,8 @@ video {
 .red {
   background: linear-gradient(90deg, rgba(255,17,0,1) 0%, rgba(249,255,0,1) 100%);
 }
+
+/* media query adjustments */
 @media only screen and (max-width: 1250px) {
   #modal1 {
     width: 1000px;
