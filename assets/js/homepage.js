@@ -16,7 +16,7 @@ var apiSearchHistory = function () {
   // loop goes through api using gameid provided from previous searches stored in local storage
   for (let i = 0; i < list.length; i++) {
     // creates api url for specific game ids
-    var apiUrlHistory = "https://api.rawg.io/api/games/" + list[i];
+    var apiUrlHistory = "https://api.rawg.io/api/games/" + list[i] + "?key=495bab1ccfba441abf07a333df4eceec";
 
     fetch(apiUrlHistory).then(function (response) {
       response.json().then(function (data) {
@@ -61,7 +61,7 @@ apiSearchHistory();
 
 // function used to created displayed generes in modal when ready up is selected
 var apiDataFunction = function () {
-  var apiUrl = "https://api.rawg.io/api/genres";
+  var apiUrl = "https://api.rawg.io/api/genres?key=495bab1ccfba441abf07a333df4eceec";
 
   fetch(apiUrl).then(function (response) {
     response.json().then(function (data) {
@@ -100,7 +100,7 @@ var apiDataFunctionTwo = function (gameGenre) {
   // fetches data for anticipated 2020 games
 
   var apiUrlTwo =
-    "https://api.rawg.io/api/games?genres=" +
+    "https://api.rawg.io/api/games?key=495bab1ccfba441abf07a333df4eceec&genres=" +
     gameGenre +
     // most popular games from 2000 to current
     "&dates=2000-01-01," +
@@ -141,7 +141,7 @@ var apiDataFunctionTwo = function (gameGenre) {
 // uses gameid and name to display information to page
 var gameIdFunction = function (gameId, gameName) {
   // creates url using gameid to ensure appropriate game is searched
-  var apiUrlId = "https://api.rawg.io/api/games/" + gameId;
+  var apiUrlId = "https://api.rawg.io/api/games/" + gameId + "?key=495bab1ccfba441abf07a333df4eceec";
 
   fetch(apiUrlId).then(function (response) {
     response.json().then(function (data) {
@@ -286,7 +286,7 @@ var highestRatedGames = function () {
   var randomNumGen = Math.floor(Math.random() * 15);
 
   var apiHighestRated =
-    "https://api.rawg.io/api/games?dates=2001-01-01," +
+    "https://api.rawg.io/api/games?key=495bab1ccfba441abf07a333df4eceec&dates=2001-01-01" +
     dateTime +
     "&ordering=-rating";
 
@@ -353,7 +353,7 @@ var anticipatedGames = function () {
 
   // url for most anticipated games coming up to current date
   var apiAnticipated =
-    "https://api.rawg.io/api/games?dates=2019-10-10," +
+    "https://api.rawg.io/api/games?key=495bab1ccfba441abf07a333df4eceec&dates=2019-10-10," +
     dateTime +
     "&ordering=-added";
 
